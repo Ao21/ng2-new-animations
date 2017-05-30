@@ -95,20 +95,20 @@ export const ANIMATIONS = [
   ]),
 
   trigger('animateItem', [
-  //   state('void', style({ transform: 'translateX(-250px)' })),
-  //   state('true', style({ transform: 'translateX(0)' })),
-  //   transition('* => *', [
-  //     animate(500)
-  //   ]),
+    state('void', style({ transform: 'translateX(-250px)' })),
+    state('true', style({ transform: 'translateX(0)' })),
+    transition('* => *', [
+      animate(500)
+    ]),
 
-  //   transition(':enter', [
-  //     style({ transform: 'translateX(-250px)' }),
-  //     animate('350ms', style({ transform: 'translateX(0)' }))
-  //   ]),
-  //   transition(':leave', [
-  //     style({ transform: 'translateX(0)' }),
-  //     animate('350ms', style({ transform: 'translateX(-250px)' }))
-  //   ])
+    transition(':enter', [
+      style({ transform: 'translateX(-250px)' }),
+      animate('350ms', style({ transform: 'translateX(0)' }))
+    ]),
+    transition(':leave', [
+      style({ transform: 'translateX(0)' }),
+      animate('350ms', style({ transform: 'translateX(-250px)' }))
+    ])
   ])
 
 
