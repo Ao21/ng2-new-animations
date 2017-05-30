@@ -11,37 +11,50 @@ import {
 export const ANIMATIONS = [
   trigger('routerAnimations', [
     transition('* => *', [
-      query(':leave', animateChild(), { optional: true }),
-      query(':enter', animateChild(), { optional: true }),
+      query(':leave', [
+        style({ position: 'absolute', top: 0, transform: 'translateY(0)' }),
+        animate('2s', style({ transform: 'translateY(-250px)' })),
+        animateChild(),
+
+      ], { optional: true }),
+      query(':enter', [
+        style({ position: 'absolute', top: 0, transform: 'translateY(-250px)' }),
+        animate('2s', style({ transform: 'translateY(0)' })),
+        animateChild(),
+      ], { optional: true }),
     ])
   ]),
 
   trigger('homeAnimation', [
     transition(':enter', [
       query('@testAnim', [
-        style({ position: 'absolute', top: 0 }),
         animateChild()
-      ],
-        { optional: true })
+      ], { optional: true }),
+
+      query('@animateItem', [
+        style({ transform: 'translateX(-250px)' }),
+        animate('350ms', style({ transform: 'translateX(0)' }))
+      ], { optional: true }),
+
+
     ]),
     transition(':leave', [
       query('@testAnim', [
-        style({ position: 'absolute', top: 0 }),
         animateChild()
-      ], { optional: true })
+      ], { optional: true }),
+
+
     ])
   ]),
 
   trigger('aboutAnimation', [
     transition(':enter', [
       query('@testAnim', [
-        style({ position: 'absolute', top: 0 }),
         animateChild()
       ], { optional: true })
     ]),
     transition(':leave', [
       query('@testAnim', [
-        style({ position: 'absolute', top: 0 }),
         animateChild()
       ], { optional: true })
     ])
@@ -50,18 +63,16 @@ export const ANIMATIONS = [
 
   trigger('testAnim', [
     transition(':enter', [
-      animateChild(),
       animate('400ms', style({ transform: 'scale(1.1)', color: 'red' })),
+
 
     ]),
     transition(':leave', [
-      animateChild(),
       animate('400ms', style({ transform: 'scale(0.8)', color: 'blue' })),
+
 
     ])
   ]),
-
-
 
   trigger('listAnimation', [
     transition(':enter', [
@@ -84,20 +95,20 @@ export const ANIMATIONS = [
   ]),
 
   trigger('animateItem', [
-    // state('void', style({ transform: 'translateX(-250px)' })),
-    // state('true', style({ transform: 'translateX(0)' })),
-    // transition('* => *', [
-    //   animate(500)
-    // ]),
+  //   state('void', style({ transform: 'translateX(-250px)' })),
+  //   state('true', style({ transform: 'translateX(0)' })),
+  //   transition('* => *', [
+  //     animate(500)
+  //   ]),
 
-    transition(':enter', [
-      style({ transform: 'translateX(-250px)' }),
-      animate('350ms', style({ transform: 'translateX(0)' }))
-    ]),
-    transition(':leave', [
-      style({ transform: 'translateX(0)' }),
-      animate('350ms', style({ transform: 'translateX(-250px)' }))
-    ])
+  //   transition(':enter', [
+  //     style({ transform: 'translateX(-250px)' }),
+  //     animate('350ms', style({ transform: 'translateX(0)' }))
+  //   ]),
+  //   transition(':leave', [
+  //     style({ transform: 'translateX(0)' }),
+  //     animate('350ms', style({ transform: 'translateX(-250px)' }))
+  //   ])
   ])
 
 
